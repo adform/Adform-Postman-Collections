@@ -1,0 +1,940 @@
+{
+  "variables": [],
+  "info": {
+    "name": "Adform API (Seller)",
+    "_postman_id": "1055b7c8-e1c3-0d32-4cf0-66a4fca5db30",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "c2ceadd1-027f-9b21-a16a-9e2cd1766649",
+      "name": "Authorization",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "f359bf27-12db-9bbc-07b4-4a44fd42cbb6",
+          "name": "OAuth2 Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Content-Type is application/json\"] =",
+                  "  request.headers[\"Content-Type\"] === \"application/json\";",
+                  "",
+                  "tests[\"Request was successful\"] = ",
+                  "  responseCode.code === 200;",
+                  "",
+                  "if(responseCode.code === 200) {",
+                  "  var jsonData = JSON.parse(responseBody);",
+                  "  postman.setGlobalVariable('access_token', jsonData.access_token);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "client_id",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "client_secret",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text"
+                },
+                {
+                  "key": "scope",
+                  "value": "https://api.adform.com/scope/eapi",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://id.adform.com/sts/connect/token",
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "d2e4f8f5-c9a7-01ee-f026-b791adaa5439",
+      "name": "Clients",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "c837ab95-3783-ccd0-c237-c45b8fc6fedb",
+          "name": "Advertisers",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "64103768-6bf3-7d98-f6b8-b9041f4aa0d8",
+              "name": "Advertisers",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/seller/advertisers",
+                "description": "This method allows to retrieve advertisers with paging, sorting and filtering."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "0da2da65-225c-25fb-3d19-b14e57f5b8fd",
+              "name": "Create Advertiser",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"API Test Advertiser\",\r\n  \"active\": true,\r\n  \"categoryId\": 1\r\n}"
+                },
+                "url": "https://api.adform.com/v1/seller/advertisers",
+                "description": "This method allows to create a new Advertiser.\n\nCategory Id has to be greater than 0."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "6a4070f5-b62e-5ec7-ed42-a17615cd6aea",
+              "name": "Update Advertiser",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": 00000,\r\n  \"name\": \"API Test Advertiser Updated\",\r\n  \"active\": true,\r\n  \"categoryId\": 1,\r\n  \"refUserName\": \"ppasBillingIntegrationTest\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/seller/advertisers",
+                "description": "This method allows to update Advertiser."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "24acd852-c66b-3c60-801f-01d1f271859d",
+              "name": "Specific Advertiser",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/seller/advertisers/00000",
+                "description": "This method allows to retrieve a specific advertiser.\n\nEXAMPLE: /v1/seller/advertisers/00000 (where 00000 is Advertiser Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "9f560b42-de76-c88d-2317-df8a88e7a7bd",
+              "name": "Update Clients' ID of the Advertiser entry ",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"Id\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/seller/advertisers/00000/ExternalId",
+                "description": "This method allows to update existing clients' identifier of the advertiser entry in the external publisher adserver (not PPAS)."
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "_postman_id": "f8706138-b121-4595-ee49-2af486b67dc1",
+          "name": "Buyers",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "a094c3e2-1193-d7f9-b34b-2c1ee3ed753b",
+              "name": "Buyers",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/seller/buyers",
+                "description": "This method allows to retrieve Buyers with paging, sorting and filtering."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "1c8b63d1-2a76-7418-15e6-f5e693bae0be",
+              "name": "Create Buyer",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Test API Buyer\",\r\n  \"active\": true,\r\n  \"adformDspId\": 1\r\n}"
+                },
+                "url": "https://api.adform.com/v1/seller/buyers",
+                "description": "This method allows to create a new Buyer object."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "4d376dc8-ee0a-18eb-f142-5631a90447b1",
+              "name": "Specific Buyer",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/seller/buyers/00000",
+                "description": "This method allows to retrieve a specifiv buyer by Id.\n\nEXAMPLE: /v1/seller/buyers/00000 (where 00000 is Buyer Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "a3a91a8a-7f3e-d0a4-fb51-9059beb019b6",
+              "name": "Update Buyer",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Test API Buyer\",\r\n  \"active\": true,\r\n  \"adformDspId\": 1\r\n}"
+                },
+                "url": "https://api.adform.com/v1/seller/buyers/000",
+                "description": "This method allows to update buyer.\n\nEXAMPLE: /v1/seller/buyers/00000 (where 00000 is Buyer Id)"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        }
+      ]
+    },
+    {
+      "_postman_id": "9a0a0a05-860f-59e9-573d-a1cd4cc137e8",
+      "name": "Comments",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "fd9170cb-ed34-1d1f-923c-f922b5ee5895",
+          "name": "Management",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "b8c9f7fe-2b33-d508-9527-fa4e93056e09",
+              "name": "Comments",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/seller/comments",
+                "description": "This method allows to retrieve a list of seller comments."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "0c822f80-edb7-6a14-34f3-be2f800ed958",
+              "name": "Create Comment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 201;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"inventorySourceId\": 1,\r\n  \"commentatorId\": 1,\r\n  \"entityType\": \"LineItem\",\r\n  \"entityId\": 1,\r\n  \"content\": \"Test API Comment\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/seller/comments",
+                "description": "This method allows to create a new comment."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "109d6f65-cb5e-ed02-58f1-b2a04fc16d46",
+              "name": "Delete Comment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 204;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/seller/comments/00000",
+                "description": "This method allows to delete comment.\n\nEXAMPLE: /v1/seller/comments/00000 (where 00000 is comment Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "6a5b84ab-f403-b546-4618-d0c5fecd6a30",
+              "name": "Specific Comment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/seller/comments/00000",
+                "description": "This method allows to get a specific comment by Id.\n\nEXAMPLE: /v1/seller/comments/00000 (where 00000 is comment Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "11a56fde-26db-5a6e-4d5f-4644e39b9631",
+              "name": "Partial Update Comment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json-patch+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[{\r\n  \"op\": \"replace\",\r\n  \"path\": \"/content\",\r\n  \"value\": \"Partially updated comment\"\r\n}]\r\n"
+                },
+                "url": "https://api.adform.com/v1/seller/comments/00000",
+                "description": "This method allows to partially update comment.\n\nEXAMPLE: /v1/seller/comments/00000 (where 00000 is comment Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "76d74f1a-6d38-8e4a-25de-e35fa6ba8b20",
+              "name": "Update Comment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"created\": \"2017-01-05T16:03:38.7779653Z\",\r\n  \"updated\": \"2017-01-05T16:03:38.7779653Z\",\r\n  \"inventorySourceId\": 1,\r\n  \"commentatorId\": 1,\r\n  \"entityType\": \"LineItem\",\r\n  \"entityId\": 1,\r\n  \"content\": \"My new comment\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/seller/comments/00000",
+                "description": "This method allows to fully update comment.\n\nEXAMPLE: /v1/seller/comments/00000 (where 00000 is comment Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "7b88cc53-6887-8ff5-a4b8-5f83d35c03e6",
+              "name": "Update Comment copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "tests[\"Request header includes authentication Ticket\"] = \r",
+                      "  request.headers.Ticket;\r",
+                      "    \r",
+                      "tests[\"Content-Type is application/json\"] =\r",
+                      "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                      "\r",
+                      "tests[\"Request was successful\"] = \r",
+                      "  responseCode.code === 200;"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"created\": \"2017-01-05T16:03:38.7779653Z\",\r\n  \"updated\": \"2017-01-05T16:03:38.7779653Z\",\r\n  \"inventorySourceId\": 1,\r\n  \"commentatorId\": 1,\r\n  \"entityType\": \"LineItem\",\r\n  \"entityId\": 1,\r\n  \"content\": \"My new comment\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/seller/comments/00000",
+                "description": "This method allows to fully update comment.\n\nEXAMPLE: /v1/seller/comments/00000 (where 00000 is comment Id)"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        }
+      ]
+    },
+    {
+      "_postman_id": "ca9f2344-d109-b8a7-db37-4989615bf0e3",
+      "name": "Inventory forecasting",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "e0c5e92b-c059-4916-7b66-7355a875a2eb",
+          "name": "Get Inventory Forecasts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "    \r",
+                  "tests[\"Content-Type is application/json\"] =\r",
+                  "  request.headers[\"Content-Type\"] === \"application/json\";\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"dateRange\": {\r\n    \"from\": \"2017-02-13T09:28:45.887Z\",\r\n    \"to\": \"2017-02-13T09:28:45.887Z\"\r\n  },\r\n  \"placementIds\": [\r\n    152,\r\n    6542,\r\n    23\r\n  ],\r\n  \"inventoryType\": \"Regular\"\r\n}"
+            },
+            "url": "https://api.adform.com/v1/seller/forecasts/inventory",
+            "description": "This method allows to retrieve inventory forecast."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "0d42dd42-8c21-2732-3525-c220040c5e8a",
+      "name": "Reporting",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "e01dd004-fb73-46cf-cf94-76e87fc9526d",
+          "name": "Metadata",
+          "description": "This services allow you to get a list of possible Dimensions and Metrics along with their respective descriptions",
+          "item": [
+            {
+              "_postman_id": "a04ae1e9-e944-b0ae-9c0e-2914df8bc408",
+              "name": "Get Dimensions metadata",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"dimensions\": []\r\n}"
+                },
+                "url": "https://api.adform.com/v1/reportingstats/publisher/metadata/dimensions",
+                "description": "Leave [ ] empty in order to get a full list of Dimensions"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "b6d8e76e-2fb5-4de3-26eb-8ea580a4075a",
+              "name": "Get Metrics metadata",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"metrics\": []\r\n}"
+                },
+                "url": "https://api.adform.com/v1/reportingstats/publisher/metadata/metrics",
+                "description": "Leave [ ] empty in order to get a full list of Metrics"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "_postman_id": "d480ca42-075f-25e6-ff45-0a4bb303fbf2",
+          "name": "Stats",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "66368b8c-430f-213f-1ae0-abba0638ff73",
+              "name": "Get Reporting Stats",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"filter\": {\r\n      \"date\": {\r\n         \"from\": \"2017-01-01\",\r\n         \"to\": \"2017-01-20\"\r\n      }\r\n   },\r\n   \"dimensions\" : [\r\n      \"publisher\"\r\n   ],\r\n   \"metrics\": [\r\n      \"impressions\",\r\n      \"clicks\",\r\n      \"bidRequests\"\r\n   ]\r\n}"
+                },
+                "url": "https://api.adform.com/v1/reportingstats/publisher/reportdata",
+                "description": "This service allows you to retrieve your reporting data.\nUse Services such as:\n\nMetadata for list of Dimensions and metrics - https://api.adform.com/help/references/seller-solutions/reporting/metadata\n\nFilters - https://api.adform.com/help/references/seller-solutions/reporting/reportdata/filters\n\nPaging - https://api.adform.com/help/references/seller-solutions/reporting/reportdata/paging\n\nSorting- https://api.adform.com/help/references/seller-solutions/reporting/reportdata/sorting\n\nThis endpoint has a request qouta(per inventory source) of:\n10requests/min\n500requests/day"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        }
+      ]
+    },
+    {
+      "_postman_id": "20e22319-d999-6ee0-0b01-ba7ce4b58050",
+      "name": "Batch",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "d13219e8-a365-367f-8ebb-be328eee2e2f",
+          "name": "Pack requests into one batch",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": " [{\r\n   \"method\": \"GET\",\r\n   \"relativeUrl\": \"Services/User/Users\",\r\n   \"headers\": {\r\n     \"Ticket\": \"{{Ticket}}\"\r\n   }\r\n }, {\r\n   \"method\": \"GET\",\r\n   \"relativeUrl\": \"Services/Advertiser/Advertisers\",\r\n   \"headers\": {\r\n     \"Ticket\": \"{{Ticket}}\"\r\n   }\r\n }, {\r\n   \"method\": \"POST\",\r\n   \"relativeUrl\": \"Services/RTBActivity/v20141111/Activities\",\r\n   \"headers\": {\r\n     \"Ticket\": \"{{Ticket}}\"\r\n   },\r\n   \"body\": \"{\\\"CampaignId\\\": 00000,\\\"Name\\\": \\\"Batching test1\\\",\\\"SchedulingType\\\": 1,\\\"SchedulerStartDate\\\": \\\"2017-05-04T23:00:00Z\\\",\\\"SchedulerEndDate\\\": \\\"2017-10-31T00:00:00Z\\\", \\\"PeriodStartDate\\\": \\\"2017-05-05T14:23:00Z\\\",\\\"PeriodEndDate\\\": \\\"2017-05-04T23:00:00Z\\\",\\\"FullPeriodStartDate\\\": \\\"2017-05-04T23:00:00Z\\\",\\\"FullPeriodEndDate\\\": \\\"2017-10-31T00:00:00Z\\\",\\\"BuyingType\\\": 2,\\\"Inventories\\\": [{\\\"InventorySourceId\\\": 780,\\\"SourceId\\\": 780,\\\"SourceType\\\": 1,\\\"State\\\": 2}]}\"\r\n }]"
+            },
+            "url": "https://api.adform.com/batch",
+            "description": "This API allows sending one large API request with many API calls inside of it. Instead of sending multiple small requests. \nAPI call as made simultaniously. \n\nResponse is structured the same as a request. i.e. First API request will be first in response and so on.\n\nIf there are dependancies, you can use \"name\" and \"dependsOn\"\n[{\"method\":\"GET\", \"name\":\"first-request\", \"relativeUrl\":\"v1/campaigns/1\"},{\"method\":\"GET\", \"dependsOn\": \"first-request\", \"relativeUrl\":\"v1/campaigns/2\"}]\n\nTo exclude headers from response code use ?includeHeaders=false\n"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
