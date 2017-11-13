@@ -1,0 +1,1808 @@
+{
+  "variables": [],
+  "info": {
+    "name": "Adform API (Open Direct)",
+    "_postman_id": "7c7ddb70-1c53-5b44-d56f-eb8511cdef7f",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "c3a763c3-7adb-eddd-0621-b071e311f233",
+      "name": "Agencies",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "fd8482b7-ce86-baa9-38a9-5eb4fe27cffa",
+          "name": "Marketplace API",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "5f3fa243-0d4e-39da-792e-d83c6f0c0175",
+              "name": "All Publisher Objects",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://api.adform.com/v1/od/buyer/marketplace/publisher?00000",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "adform",
+                    "com"
+                  ],
+                  "path": [
+                    "v1",
+                    "od",
+                    "buyer",
+                    "marketplace",
+                    "publisher"
+                  ],
+                  "query": [
+                    {
+                      "key": "00000",
+                      "value": ""
+                    }
+                  ]
+                },
+                "description": "This method allows you to get all Publisher Objects.\n\nEXAMPLE: /od/buyer/marketplace/publisher?00000\n(where 00000 is client Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "f6258574-b370-ec5b-2aa8-1369adf0d617",
+              "name": "Publisher by integrationId",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://api.adform.com/v1/od/buyer/marketplace/publisher/111111?00000",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "adform",
+                    "com"
+                  ],
+                  "path": [
+                    "v1",
+                    "od",
+                    "buyer",
+                    "marketplace",
+                    "publisher",
+                    "111111"
+                  ],
+                  "query": [
+                    {
+                      "key": "00000",
+                      "value": ""
+                    }
+                  ]
+                },
+                "description": "This method allows you to get publisher by integration Id.\n\nEXAMPLE: v1/od/buyer/marketplace/publisher/111111?00000\n(where 111111 is integrationId and 00000 is client Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "ea16a8a4-95e9-e71d-75c7-ecbe252cec5e",
+              "name": "All Products",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://api.adform.com/v1/od/buyer/marketplace/publisher/11111/products?000000",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "adform",
+                    "com"
+                  ],
+                  "path": [
+                    "v1",
+                    "od",
+                    "buyer",
+                    "marketplace",
+                    "publisher",
+                    "11111",
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "000000",
+                      "value": ""
+                    }
+                  ]
+                },
+                "description": "This method allows you to get all products belonging to given publisher that match criteria given in query.\n\nEXAMPLE: v1/od/buyer/marketplace/publisher/11111/products?000000\n(where 111111 is integrationId and 00000 is client Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "785d45fb-8004-b71d-e779-58fc386b97fd",
+              "name": "Specific Product",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://api.adform.com/v1/od/buyer/marketplace/publisher/111111/products/22222?00000",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "adform",
+                    "com"
+                  ],
+                  "path": [
+                    "v1",
+                    "od",
+                    "buyer",
+                    "marketplace",
+                    "publisher",
+                    "111111",
+                    "products",
+                    "22222"
+                  ],
+                  "query": [
+                    {
+                      "key": "00000",
+                      "value": ""
+                    }
+                  ]
+                },
+                "description": "This method allows you to get a specific product with given 'productId' if it belongs to publisher with 'integrationId'.\n\nEXAMPLE: v1/od/buyer/marketplace/publisher/111111/products/22222?00000\n(where 22222 is productId, 11111 is integrationId and 00000 is client Id)"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "_postman_id": "e6baba1f-769b-7b1f-8598-ec9c91a6b296",
+          "name": "Order API",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "e63fd633-1f0a-0c4a-3c83-050981fb3cb5",
+              "name": "Get Pricing and Availability",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountId\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"frequencyCount\": 0,\r\n  \"frequencyInterval\": \"Day\",\r\n  \"quantity\": 0,\r\n  \"productIds\": [\r\n    \"string\"\r\n  ],\r\n  \"startDate\": \"string\",\r\n  \"targeting\": [\r\n    null\r\n  ]\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/buyer/products/avails",
+                "description": "This method allows to get pricing and availability information."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "fe7dfac1-133f-c256-4231-0fa697584967",
+              "name": "Client Organizations",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/organizations",
+                "description": "This method allows to get Client Organizations of Current organization."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "f6d75bca-78c2-e336-1718-d01687b4c623",
+              "name": "Create new Agency (Top Level)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"status\": \"string\",\r\n  \"disapprovalReason\": \"string\",\r\n  \"fax\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"address\": {\r\n    \"city\": \"string\",\r\n    \"country\": \"string\",\r\n    \"addressLine1\": \"string\",\r\n    \"addressLine2\": \"string\",\r\n    \"postalCode\": \"string\",\r\n    \"state\": \"string\"\r\n  },\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"url\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/buyer/organizations",
+                "description": "This method allows to create new Agency (Top Level) Organization object"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "921fc96f-561e-dfd7-b2a2-c7b3850d1a88",
+              "name": "Update Agency (Top Level)",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"status\": \"string\",\r\n  \"disapprovalReason\": \"string\",\r\n  \"fax\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"address\": {\r\n    \"city\": \"string\",\r\n    \"country\": \"string\",\r\n    \"addressLine1\": \"string\",\r\n    \"addressLine2\": \"string\",\r\n    \"postalCode\": \"string\",\r\n    \"state\": \"string\"\r\n  },\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"url\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/buyer/organizations/00000",
+                "description": "This method allows to update new Agency (Top Level) Organization object.\n\nYou need to parse Organization Id on your request Url.\n\nEXAMPLE: /v1/od/buyer/organizations/00000\n(where 00000 is organizationId)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "acd44d26-8feb-c9f8-d262-af8fae0880d6",
+              "name": "Current Top Level Organization",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/organizations/current",
+                "description": "This method allows to get Current Top Level Organization."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "57a1c425-d6f3-4634-c086-24442659f6a4",
+              "name": "Create New Client Organization Object",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"status\": \"string\",\r\n  \"disapprovalReason\": \"string\",\r\n  \"fax\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"address\": {\r\n    \"city\": \"string\",\r\n    \"country\": \"string\",\r\n    \"addressLine1\": \"string\",\r\n    \"addressLine2\": \"string\",\r\n    \"postalCode\": \"string\",\r\n    \"state\": \"string\"\r\n  },\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"url\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/buyer/organizations/clients",
+                "description": "Create new Client Organization object."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "f55128c0-9443-d80f-3507-55330fc5da30",
+              "name": "Update Client Organization Object",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"status\": \"string\",\r\n  \"disapprovalReason\": \"string\",\r\n  \"fax\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"address\": {\r\n    \"city\": \"string\",\r\n    \"country\": \"string\",\r\n    \"addressLine1\": \"string\",\r\n    \"addressLine2\": \"string\",\r\n    \"postalCode\": \"string\",\r\n    \"state\": \"string\"\r\n  },\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"url\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/buyer/organizations/clients/00000",
+                "description": "Create new Client Organization object.\n\nEXAMPLE: /v1/od/buyer/organizations/clients/00000\n(where 00000 is organization Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "d0070089-fc25-caed-c7d1-9cf169436924",
+              "name": "All Accounts",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts",
+                "description": "This method allows to get All Accounts for current organization."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "fdac952b-200d-9201-f428-22b68356c2e7",
+              "name": "Create Account",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"advertiserId\": \"string\",\r\n  \"buyerId\": \"string\",\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"providerData\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts",
+                "description": "This method allows to create Account object."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "df664877-5904-5d05-5cf1-c9b46a9a5245",
+              "name": "Specific Account",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts/00000",
+                "description": "This method allows to get specific account by account Id.\n\nEXAMPLE: /od/buyer/accounts/00000\n(where 00000 is account Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "950161a0-2918-64df-8dfe-6d39d4612e17",
+              "name": "Specific Account Orders",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts/00000/orders",
+                "description": "This method allows to get all orders under a specific account.\n\nEXAMPLE: /od/buyer/accounts/00000/orders\n(where 00000 is account Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "9b7a0f7f-5c37-7430-32ca-38c5c93964a4",
+              "name": "Create Order",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountId\": \"string\",\r\n  \"brand\": \"string\",\r\n  \"budget\": 0,\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"currency\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"id\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"name\": \"string\",\r\n  \"preferredBollingMethod\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"startDate\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts/00000/orders",
+                "description": "This method allows to create a new order under a specific account.\n\nEXAMPLE: /od/buyer/accounts/00000/orders\n(where 00000 is account Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "951d9a33-9efa-592d-d74d-0285686ecbc2",
+              "name": "Delete Order",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts/00000/orders/11111",
+                "description": "This method allows to delete an order.\n\nEXAMPLE: /od/buyer/accounts/00000/orders/11111\n(where 00000 is account Id and 11111 is order Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "445e6a10-dbb6-a284-7f0a-02dcd8199d8d",
+              "name": "Specific Order",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts/00000/orders/11111",
+                "description": "This method allows to get a specific order by order Id.\n\nEXAMPLE: /od/buyer/accounts/00000/orders/11111\n(where 00000 is account Id and 11111 is order Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "8e04b9a2-3586-9f98-0edd-14feec50af62",
+              "name": "Update Order",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountId\": \"string\",\r\n  \"brand\": \"string\",\r\n  \"budget\": 0,\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"currency\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"id\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"name\": \"string\",\r\n  \"preferredBollingMethod\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"startDate\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts/00000/orders/11111",
+                "description": "This method allows to update an existing order.\n\nEXAMPLE: /od/buyer/accounts/00000/orders/11111\n(where 00000 is account Id and 11111 is order Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "b0252afd-9831-78db-032a-f1287b87fbb3",
+              "name": "All Lines in Order",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts/00000/orders/11111/lines",
+                "description": "This method allows to get all lines in order for account.\n\nEXAMPLE: /od/buyer/accounts/00000/orders/11111/lines\n(where 00000 is account Id and 11111 is order Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "9cc49dba-6693-d64c-1f6f-5fb8329c4acf",
+              "name": "Create Lines",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"orderId\": \"string\",\r\n  \"productId\": \"string\",\r\n  \"bookingStatus\": \"Draft\",\r\n  \"startDate\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"name\": \"string\",\r\n  \"comment\": \"string\",\r\n  \"cost\": 0,\r\n  \"frequencyCount\": 0,\r\n  \"frequencyInterval\": \"Hour\",\r\n  \"quantity\": 0,\r\n  \"providerData\": \"string\",\r\n  \"rate\": 0,\r\n  \"reservedExpiryDate\": \"string\",\r\n  \"stateChangeReason\": \"string\",\r\n  \"targeting\": [\r\n    {\r\n      \"target\": \"string\",\r\n      \"targetValues\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ],\r\n  \"usesExpandables\": true\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts/00000/orders/11111/lines",
+                "description": "This method allows to create new lines in order.\n\nEXAMPLE: /od/buyer/accounts/00000/orders/11111/lines\n(where 00000 is account Id and 11111 is order Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "0f5cfe8c-1ac1-4406-0379-ba0c18e2de3f",
+              "name": "Delete Lines",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts/00000/orders/11111/lines/22222",
+                "description": "This method allows to delete lines in order.\n\nEXAMPLE: /od/buyer/accounts/00000/orders/11111/lines/22222\n(where 00000 is account Id, 11111 is order Id, 22222 is line Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "1951b383-2417-0e23-d855-5df2a9e711f4",
+              "name": "Specific Lines",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/accounts/00000/orders/11111/lines/22222",
+                "description": "This method allows to get specifi lines.\n\nEXAMPLE: /od/buyer/accounts/00000/orders/11111/lines/22222\n(where 00000 is account Id, 11111 is order Id, 22222 is line Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "24ce439f-28c2-c2ee-5a33-83573ada2603",
+              "name": "Update Specific Lines",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"orderId\": \"string\",\r\n  \"productId\": \"string\",\r\n  \"bookingStatus\": \"Draft\",\r\n  \"startDate\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"name\": \"string\",\r\n  \"comment\": \"string\",\r\n  \"cost\": 0,\r\n  \"frequencyCount\": 0,\r\n  \"frequencyInterval\": \"Hour\",\r\n  \"quantity\": 0,\r\n  \"providerData\": \"string\",\r\n  \"rate\": 0,\r\n  \"reservedExpiryDate\": \"string\",\r\n  \"stateChangeReason\": \"string\",\r\n  \"targeting\": [\r\n    {\r\n      \"target\": \"string\",\r\n      \"targetValues\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ],\r\n  \"usesExpandables\": true\r\n}"
+                },
+                "url": {
+                  "raw": "https://api.adform.com/v1/od/buyer/accounts/00000/orders/11111/lines/22222?x",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "adform",
+                    "com"
+                  ],
+                  "path": [
+                    "v1",
+                    "od",
+                    "buyer",
+                    "accounts",
+                    "00000",
+                    "orders",
+                    "11111",
+                    "lines",
+                    "22222"
+                  ],
+                  "query": [
+                    {
+                      "key": "x",
+                      "value": "",
+                      "equals": false
+                    }
+                  ]
+                },
+                "description": "This method allows to update specific lines in order.\n\nEXAMPLE: /v1/od/buyer/accounts/00000/orders/11111/lines/22222?x\n(where 00000 is account Id, 11111 is order Id, 22222 is line Id and x is status)\n\nPossible status values:\n1. book\n2. reserve\n3. cancel\n4. reset"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "cb4a3f9a-6ebd-0721-b55f-9932ae989105",
+              "name": "All Assignments",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/00000/accounts/11111/assignments",
+                "description": "This method allows to get all assignmentsfor account.\n\nEXAMPLE: /od/buyer/00000/accounts/11111/assignments\n(where 00000 is integration Id and 11111 is account Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "1a286b1c-350f-579b-3e14-e1b0be4b3617",
+              "name": "Create Assignment",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"creativeId\": \"string\",\r\n  \"lineId\": \"string\",\r\n  \"status\": \"Active\",\r\n  \"providerData\": \"string\",\r\n  \"weight\": 0\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/buyer/00000/accounts/11111/assignments",
+                "description": "This method allows to create a new assignment.\n\nEXAMPLE: /od/buyer/00000/accounts/11111/assignments\n(where 00000 is integration Id and 11111 is account Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "f9f43aa4-886a-3654-f4ef-b62cbe5fe8d8",
+              "name": "Delete Assignment",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/00000/accounts/11111/assignments/22222",
+                "description": "This method allows to delete an assignment.\n\nEXAMPLE: /od/buyer/00000/accounts/11111/assignments/22222\n(where 00000 is integration Id, 11111 is account Id, 22222 is assignment Id)"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "91891242-bef0-9f9a-e7e3-957300e59fe9",
+              "name": "Get Specific Assignment",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/buyer/00000/accounts/11111/assignments/22222",
+                "description": "This method allows to get a specific assignment.\n\nEXAMPLE: /od/buyer/00000/accounts/11111/assignments/22222\n(where 00000 is integration Id, 11111 is account Id, 22222 is assignment Id)"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        }
+      ]
+    },
+    {
+      "_postman_id": "05bceb52-8997-a072-0ed2-b03b3f2826ec",
+      "name": "Publisher Cross Advertising",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "73c2e29e-da4b-d18d-dcfb-8ba078b35787",
+          "name": "Marketplace API",
+          "description": null,
+          "item": [
+            {
+              "_postman_id": "f87d48a1-b478-66a6-68c6-fef0fc772845",
+              "name": "Get all products",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/marketplace/products",
+                "description": "Gets all Products that match criteria given in query."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "2d75b95f-bc77-4403-05a8-de3a763e036f",
+              "name": "Get product by productId",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/marketplace/products/{productId}",
+                "description": "Gets the Product with given 'productId' if it belongs to publisher"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "ad3ddcce-1d9b-aea4-20b8-fdd1802d51a7",
+              "name": "Get placements of product by productId",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/marketplace/products/{productId}/placements",
+                "description": "Gets the placements of Product with given 'productId' if it belongs to publisher"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "_postman_id": "32a5c780-9704-cb40-943b-b6c5d7984b15",
+          "name": "Order API",
+          "description": null,
+          "item": [
+            {
+              "_postman_id": "f25a37af-a2a3-ae0f-e389-e9f8e2985b52",
+              "name": "Get pricing and avails information (products)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountId\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"frequencyCount\": 0,\r\n  \"frequencyInterval\": \"Day\",\r\n  \"quantity\": 0,\r\n  \"productIds\": [\r\n    \"string\"\r\n  ],\r\n  \"startDate\": \"string\",\r\n  \"targeting\": [\r\n    {\r\n      \"target\": \"string\",\r\n      \"targetValues\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/products/avails",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "5ecbcd88-43e4-687c-c2e9-bd3a24a1d307",
+              "name": "Get pricing and avails time series (products)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountId\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"frequencyCount\": 0,\r\n  \"frequencyInterval\": \"Day\",\r\n  \"quantity\": 0,\r\n  \"productIds\": [\r\n    \"string\"\r\n  ],\r\n  \"startDate\": \"string\",\r\n  \"targeting\": [\r\n    {\r\n      \"target\": \"string\",\r\n      \"targetValues\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/products/avails/timeseries",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "f1621a0d-c19f-fc80-0cd6-b69ea4370d2c",
+              "name": "Get pricing and avails information (Placements)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountId\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"frequencyCount\": 0,\r\n  \"frequencyInterval\": \"Day\",\r\n  \"quantity\": 0,\r\n  \"placementIds\": [\r\n    \"string\"\r\n  ],\r\n  \"startDate\": \"string\",\r\n  \"targeting\": [\r\n    {\r\n      \"target\": \"string\",\r\n      \"targetValues\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/placements/avails",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "a77d3dac-26b5-af90-3e0a-4a06feedcc3b",
+              "name": "Get pricing and avails time series (placements) ",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountId\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"frequencyCount\": 0,\r\n  \"frequencyInterval\": \"Day\",\r\n  \"quantity\": 0,\r\n  \"placementIds\": [\r\n    \"string\"\r\n  ],\r\n  \"startDate\": \"string\",\r\n  \"targeting\": [\r\n    {\r\n      \"target\": \"string\",\r\n      \"targetValues\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/placements/avails/timeseries",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "dec1fecb-6113-e27b-3d4c-a25385f50e09",
+              "name": "Get Agency (Top Level) Organizations",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/organizations/agencies",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "d1d2b185-8860-0e9c-cf35-9bb966ee1ccd",
+              "name": "Create new Agency (Top Level) Organization object",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"status\": \"string\",\r\n  \"disapprovalReason\": \"string\",\r\n  \"fax\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"address\": {\r\n    \"city\": \"string\",\r\n    \"country\": \"string\",\r\n    \"addressLine1\": \"string\",\r\n    \"addressLine2\": \"string\",\r\n    \"postalCode\": \"string\",\r\n    \"state\": \"string\"\r\n  },\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"url\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/organizations/agencies",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "9d952ecd-e3a2-7679-17de-66f5eb643b56",
+              "name": "Update Agency (Top Level) Organization object",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"status\": \"string\",\r\n  \"disapprovalReason\": \"string\",\r\n  \"fax\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"address\": {\r\n    \"city\": \"string\",\r\n    \"country\": \"string\",\r\n    \"addressLine1\": \"string\",\r\n    \"addressLine2\": \"string\",\r\n    \"postalCode\": \"string\",\r\n    \"state\": \"string\"\r\n  },\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"url\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/organizations/agencies/{organizationId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "f018b307-5af4-205f-b1d6-a2be14ba96a1",
+              "name": "Get Client Organizations",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/organizations/clients",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "bc0b23d7-44ca-8452-72e8-14e90d02dccb",
+              "name": "Create new Client Organization object",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"status\": \"string\",\r\n  \"disapprovalReason\": \"string\",\r\n  \"fax\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"address\": {\r\n    \"city\": \"string\",\r\n    \"country\": \"string\",\r\n    \"addressLine1\": \"string\",\r\n    \"addressLine2\": \"string\",\r\n    \"postalCode\": \"string\",\r\n    \"state\": \"string\"\r\n  },\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"url\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/organizations/clients",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "7fcab1e6-0778-891e-9457-f3647dd8c015",
+              "name": "Update Client (Top Level) Organization object",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"status\": \"string\",\r\n  \"disapprovalReason\": \"string\",\r\n  \"fax\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"address\": {\r\n    \"city\": \"string\",\r\n    \"country\": \"string\",\r\n    \"addressLine1\": \"string\",\r\n    \"addressLine2\": \"string\",\r\n    \"postalCode\": \"string\",\r\n    \"state\": \"string\"\r\n  },\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"url\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/organizations/clients/{organizationId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "0a50d81f-d587-99dc-857c-ce90a3025feb",
+              "name": "Get All Accounts for current organization",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "0e1494f8-b275-14e5-e7e1-d9b6351e3115",
+              "name": "Create Account object",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"advertiserId\": \"string\",\r\n  \"buyerId\": \"string\",\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"providerData\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "8d994471-9c75-114c-58d2-37b7540d0f95",
+              "name": "Get one Account by Id",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "f2c69036-8a4e-0913-f8fd-a782fe4cd318",
+              "name": "Get all orders",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/orders",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "c2761b1a-b6a3-4a86-4dd3-08d9489ee630",
+              "name": "Create Order object",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountId\": \"string\",\r\n  \"brand\": \"string\",\r\n  \"budget\": 0,\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"currency\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"id\": \"string\",\r\n  \"externalId\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"name\": \"string\",\r\n  \"preferredBollingMethod\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"startDate\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/orders",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "d728e340-2ec7-9b50-dda2-eb204e6240f7",
+              "name": "Delete Order by Id",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/orders/{orderId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "8c77a4c8-ed3f-d71e-89d8-cea93c6a2c5c",
+              "name": "Get Order by Id",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/orders/{orderId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "c9001bc1-b200-3472-7dd1-3016da780fbf",
+              "name": "Update Order by Id",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountId\": \"string\",\r\n  \"brand\": \"string\",\r\n  \"budget\": 0,\r\n  \"contacts\": [\r\n    {\r\n      \"type\": \"string\",\r\n      \"firstName\": \"string\",\r\n      \"lastName\": \"string\",\r\n      \"address\": {\r\n        \"city\": \"string\",\r\n        \"country\": \"string\",\r\n        \"addressLine1\": \"string\",\r\n        \"addressLine2\": \"string\",\r\n        \"postalCode\": \"string\",\r\n        \"state\": \"string\"\r\n      },\r\n      \"email\": \"string\",\r\n      \"honorific\": \"string\",\r\n      \"fax\": \"string\",\r\n      \"phone\": \"string\",\r\n      \"title\": \"string\"\r\n    }\r\n  ],\r\n  \"currency\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"id\": \"string\",\r\n  \"externalId\": \"string\",\r\n  \"industry\": \"string\",\r\n  \"name\": \"string\",\r\n  \"preferredBollingMethod\": \"string\",\r\n  \"providerData\": \"string\",\r\n  \"startDate\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/orders/{orderId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "5a5c5448-35eb-1dff-5797-91e3d3398d98",
+              "name": "Get all lines in order for account",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/orders/{orderId}/lines",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "2e4983c7-a465-42b0-b04b-6c5ca6414151",
+              "name": "Create Line object",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"externalId\": \"string\",\r\n  \"orderId\": \"string\",\r\n  \"productId\": \"string\",\r\n  \"placementIds\": [\r\n    \"string\"\r\n  ],\r\n  \"bookingStatus\": \"Draft\",\r\n  \"startDate\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"name\": \"string\",\r\n  \"comment\": \"string\",\r\n  \"cost\": 0,\r\n  \"frequencyCount\": 0,\r\n  \"frequencyInterval\": \"Hour\",\r\n  \"quantity\": 0,\r\n  \"providerData\": \"string\",\r\n  \"rate\": 0,\r\n  \"reservedExpiryDate\": \"string\",\r\n  \"stateChangeReason\": \"string\",\r\n  \"targeting\": [\r\n    {\r\n      \"target\": \"string\",\r\n      \"targetValues\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ],\r\n  \"usesExpandables\": true\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/orders/{orderId}/lines",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "8e1ec819-71e0-ec28-5318-2eba078d1206",
+              "name": "Delete Line",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/orders/{orderId}/lines/{lineId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "23159b9e-c0aa-dbc9-a3f6-546d680b66e4",
+              "name": "Get One Line by Account for Order",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/orders/{orderId}/lines/{lineId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "2fd385ad-9283-eca0-3059-a1efe7ce0da0",
+              "name": "Update Line",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"externalId\": \"string\",\r\n  \"orderId\": \"string\",\r\n  \"productId\": \"string\",\r\n  \"placementIds\": [\r\n    \"string\"\r\n  ],\r\n  \"bookingStatus\": \"Draft\",\r\n  \"startDate\": \"string\",\r\n  \"endDate\": \"string\",\r\n  \"name\": \"string\",\r\n  \"comment\": \"string\",\r\n  \"cost\": 0,\r\n  \"frequencyCount\": 0,\r\n  \"frequencyInterval\": \"Hour\",\r\n  \"quantity\": 0,\r\n  \"providerData\": \"string\",\r\n  \"rate\": 0,\r\n  \"reservedExpiryDate\": \"string\",\r\n  \"stateChangeReason\": \"string\",\r\n  \"targeting\": [\r\n    {\r\n      \"target\": \"string\",\r\n      \"targetValues\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ],\r\n  \"usesExpandables\": true\r\n}"
+                },
+                "url": {
+                  "raw": "PUT /v1/od/publisher/ca/accounts/{accountId}/orders/{orderId}/lines/{lineId}?status={status}",
+                  "host": [
+                    "PUT "
+                  ],
+                  "path": [
+                    "v1",
+                    "od",
+                    "publisher",
+                    "ca",
+                    "accounts",
+                    "{accountId}",
+                    "orders",
+                    "{orderId}",
+                    "lines",
+                    "{lineId}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "{status}"
+                    }
+                  ]
+                },
+                "description": "status can be equal to: \n\tbook\n\treserve\n\tcancel\n\treset"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "41603f06-8ea0-08bf-486a-9de97bd24475",
+              "name": "Get all creatives",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/creatives",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "f8358083-25fb-5c44-4dd7-62dd4c0c2962",
+              "name": "Create Creative object",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"accountId\": \"string\",\r\n  \"adFormatType\": \"string\",\r\n  \"adQualityRejectionReason\": {},\r\n  \"adQualityStatus\": \"Pending\",\r\n  \"backupFlashAsset\": \"string\",\r\n  \"clickUrl\": \"string\",\r\n  \"creativeAsset\": \"string\",\r\n  \"geometry\": {\r\n    \"height\": 0,\r\n    \"width\": 0\r\n  },\r\n  \"httpsCompatible\": true,\r\n  \"language\": \"string\",\r\n  \"maturityLevel\": \"Children\",\r\n  \"name\": \"string\",\r\n  \"providerData\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/creatives",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "9b5e1944-194a-4b52-1348-cbcc1ab22a24",
+              "name": "Delete Creative by Id",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/creatives/{creativeId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "a6778b38-6f54-d7ae-ddbe-9fb6d472d3a0",
+              "name": "Get Creative by Id",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/creatives/{creativeId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "bc099220-5a8e-4ab6-a39a-cee5b727049e",
+              "name": "Update Creative by Id",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"accountId\": \"string\",\r\n  \"adFormatType\": \"string\",\r\n  \"adQualityRejectionReason\": {},\r\n  \"adQualityStatus\": \"Pending\",\r\n  \"backupFlashAsset\": \"string\",\r\n  \"clickUrl\": \"string\",\r\n  \"creativeAsset\": \"string\",\r\n  \"geometry\": {\r\n    \"height\": 0,\r\n    \"width\": 0\r\n  },\r\n  \"httpsCompatible\": true,\r\n  \"language\": \"string\",\r\n  \"maturityLevel\": \"Children\",\r\n  \"name\": \"string\",\r\n  \"providerData\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/creatives/{creativeId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "ee75b7d8-4955-0144-61e8-0f62ab219876",
+              "name": "Get all assignments for account",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/assignments",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "d494d0ee-cd87-41cd-f82a-d1fb1306ba12",
+              "name": "Create Assignment object",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"creativeId\": \"string\",\r\n  \"lineId\": \"string\",\r\n  \"status\": \"Active\",\r\n  \"providerData\": \"string\",\r\n  \"weight\": 0\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/assignments",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "a29cbbdc-caec-2250-590f-5822960ca32f",
+              "name": "Delete Assignment by Id",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/assignments/{assignmentId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "7efff373-7dab-99c9-e0bb-e666a68a7b22",
+              "name": "Get Assignment by Id",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/assignments/{assignmentId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "68207d31-ed60-28fb-c6b2-cac0b84367b4",
+              "name": "Update Assignment by Id",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"creativeId\": \"string\",\r\n  \"lineId\": \"string\",\r\n  \"status\": \"Active\",\r\n  \"providerData\": \"string\",\r\n  \"weight\": 0\r\n}"
+                },
+                "url": {
+                  "raw": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/assignments/{assignmentId}?{disable}",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "adform",
+                    "com"
+                  ],
+                  "path": [
+                    "v1",
+                    "od",
+                    "publisher",
+                    "ca",
+                    "accounts",
+                    "{accountId}",
+                    "assignments",
+                    "{assignmentId}"
+                  ],
+                  "query": [
+                    {
+                      "key": "{disable}",
+                      "value": ""
+                    }
+                  ]
+                },
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "7d77add9-9062-0e72-7b58-7a3fceb7b4ee",
+              "name": "Get Order by Id",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/orders/{orderId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "ea87eadb-c896-901e-5ad9-45e2a204e13e",
+              "name": "Get all change requests for account",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/changerequests",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "3706e5d6-fa1e-3445-7d0d-8d3fb1dd86d2",
+              "name": "Create change request for line",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"orderId\": \"string\",\r\n  \"lineId\": \"string\",\r\n  \"status\": \"Pending\",\r\n  \"change\": {\r\n    \"startDate\": \"string\",\r\n    \"endDate\": \"string\",\r\n    \"frequencyCount\": 0,\r\n    \"frequencyInterval\": \"Hour\",\r\n    \"removeFrequencyCapping\": true,\r\n    \"quantity\": 0,\r\n    \"rate\": 0,\r\n    \"targeting\": [\r\n      {\r\n        \"target\": \"string\",\r\n        \"targetValues\": [\r\n          \"string\"\r\n        ]\r\n      }\r\n    ]\r\n  },\r\n  \"comment\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/changerequests",
+                "description": "Only one change request with Pending status is supported"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "bff492b7-f2e3-d580-ad34-08bf2c4760b6",
+              "name": "Get change request by Id",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/changerequests/{changeRequestId}",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "2a06ddba-8496-2232-c9e9-7a9805c3f5ee",
+              "name": "Delete change request by Id",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/changerequests/{changeRequestId}",
+                "description": "Change request can be deleted only if it has Pending status"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "9c305a47-537e-7216-9d83-120cc156c7a6",
+              "name": "Update change request by Id",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"id\": \"string\",\r\n  \"orderId\": \"string\",\r\n  \"lineId\": \"string\",\r\n  \"status\": \"Pending\",\r\n  \"change\": {\r\n    \"startDate\": \"string\",\r\n    \"endDate\": \"string\",\r\n    \"frequencyCount\": 0,\r\n    \"frequencyInterval\": \"Hour\",\r\n    \"removeFrequencyCapping\": true,\r\n    \"quantity\": 0,\r\n    \"rate\": 0,\r\n    \"targeting\": [\r\n      {\r\n        \"target\": \"string\",\r\n        \"targetValues\": [\r\n          \"string\"\r\n        ]\r\n      }\r\n    ]\r\n  },\r\n  \"comment\": \"string\"\r\n}"
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/accounts/{accountId}/changerequests/{changeRequestId}",
+                "description": "Change request can be updated only if it has Pending status"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "_postman_id": "9599d7e5-7bf5-609d-d1ab-a286c3541995",
+          "name": "Targeting API",
+          "description": null,
+          "item": [
+            {
+              "_postman_id": "bd8c476a-d9d2-138b-4d92-480caa47d8b3",
+              "name": "Get available keys",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/targeting/keyvalue/available",
+                "description": "Gets available keys with availble values for key-value targeting\r\n\r\n"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "b9a23d78-0a73-4063-6231-04cd681a7a87",
+              "name": "Get available targets",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/target",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "ef028169-c216-ddfe-31b8-1518f9ad23c4",
+              "name": "Get available target values",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Ticket",
+                    "value": "{{Ticket}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://api.adform.com/v1/od/publisher/ca/targets/{targetId}/values",
+                "description": "."
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        }
+      ]
+    }
+  ]
+}
