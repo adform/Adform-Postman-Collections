@@ -1,0 +1,1076 @@
+{
+  "variables": [],
+  "info": {
+    "name": "Adform API (Audience Base)",
+    "_postman_id": "202fcb1e-48fd-c9b3-74d2-c4c8ffc892cb",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "2117d9d3-46d7-45f8-103d-0db5cfb53618",
+      "name": "Authorization",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "d14c640d-43e9-5971-cb42-571b44a57cd1",
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Content-Type is application/json\"] =",
+                  "  request.headers[\"Content-Type\"] === \"application/x-www-form-urlencoded\";",
+                  "",
+                  "tests[\"Request was successful\"] = ",
+                  "  responseCode.code === 200;",
+                  "",
+                  "if(responseCode.code === 200) {",
+                  "  var jsonData = JSON.parse(responseBody);",
+                  "  postman.setGlobalVariable('access_token', jsonData.access_token);",
+                  "    tests[\"Access token was set as a global variable\"] =",
+                  "      globals.AccessToken !== undefined;",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "password",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "{{DMPpassword}}",
+                  "type": "text"
+                },
+                {
+                  "key": "username",
+                  "value": "{{DMPusername}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://api.adform.com/v1/dmp/token",
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "55270f3f-c0fb-26c1-537b-2b8aac03aa35",
+      "name": "Taxonomy",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "a24eca0f-6c71-826a-5379-3cf5630d530c",
+          "name": "Get a list of taxonomy uploads",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/dataproviders/uploads/taxonomy",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "7f0483d3-9c4f-8098-fc76-05a394262f7f",
+          "name": "Delete uploaded file by Id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}/uploads/taxonomy/{{fileId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "3228e351-f311-77a3-0aa2-ec59fb87b41d",
+          "name": "Get data stream by file Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}/uploads/taxonomy/{{fileId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ce2cc69a-5b09-1ecd-f206-40188b97f3fa",
+          "name": "Export taxonomy for data provider",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}/taxonomy",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ae8e7028-3e87-64f5-ac11-addd634269eb",
+          "name": "Upload taxonomy for import",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/csv"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "//Put text in csv fortmat in here"
+            },
+            "url": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}/upload/taxonomy",
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "b19f416c-f68b-1369-0ba6-c41bd8b60aac",
+      "name": "Segments",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "5b530895-03c1-e94a-5d81-75b292f9ffd9",
+          "name": "Get all segments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/v1/dmp/segments",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "047f2370-4e64-7d3d-c074-7f5588667ddf",
+          "name": "Get all segments of data provider",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}/segments",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "25634fef-6499-32b7-53c6-6dee97183382",
+          "name": "Create a segment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"dataProviderId\": \"00000\",\n    \"status\": \"inactive\",\n    \"categoryId\": \"398426\",\n    \"refId\": \"Test\",\n    \"fee\": 2,\n    \"ttl\": 21,\n    \"name\": \"Test\",\n    \"frequency\": 1\n    }"
+            },
+            "url": "https://api.adform.com/v1/dmp/segments",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "62a23901-865d-71ef-75b0-706b041398fa",
+          "name": "Get all segments of category",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/v1/dmp/categories/{{categoryId}}/segments",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "63b43dfe-d202-99a7-f333-7504c8bef024",
+          "name": "Get segments available for particular data consumer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/v1/dmp/dataconsumers/{{dataConsumerId}}/segments",
+            "description": "Available parameters listed here - https://api.adform.com/v1/help/dmp#!/Segment/Segment_GetAsyncByDataconsumerid"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "a7e32e72-073f-e313-edbd-12c81080200d",
+          "name": "Delete a segment",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/v1/dmp/segments/{{segmentId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "af1c9c4b-1a6d-d177-45eb-d51da4f326e4",
+          "name": "Get segment by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/v1/dmp/segments/{{segmentId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "0d3a2a65-6b0b-8edb-2620-8a12c35f24da",
+          "name": "Update a segment by ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Id\": \"string\",\r\n  \"DataProviderId\": \"string\",\r\n  \"Status\": \"inactive\",\r\n  \"CategoryId\": \"string\",\r\n  \"RefId\": \"string\",\r\n  \"Fee\": 0,\r\n  \"Ttl\": 0,\r\n  \"Name\": \"string\",\r\n  \"Formula\": \"string\",\r\n  \"IsRecalculable\": true,\r\n  \"IsSubsegment\": true,\r\n  \"ExtractionRule\": \"string\",\r\n  \"Audience\": 0,\r\n  \"AudienceBySources\": [\r\n    {\r\n      \"Sources\": [\r\n        \"string\"\r\n      ],\r\n      \"Audience\": 0,\r\n      \"UpdatedAt\": \"2017-06-15T06:56:51.723Z\"\r\n    }\r\n  ],\r\n  \"Sources\": [\r\n    \"string\"\r\n  ],\r\n  \"AudienceByUserIdentityType\": [\r\n    {\r\n      \"UserIdentityTypeId\": \"string\",\r\n      \"Audience\": 0\r\n    }\r\n  ],\r\n  \"TransactionSources\": [\r\n    \"impression\"\r\n  ],\r\n  \"IsExtended\": true,\r\n  \"ExtensionThreshold\": 0,\r\n  \"ExtensionStatus\": \"unknown\",\r\n  \"Frequency\": 0,\r\n  \"IsCrossDevice\": true,\r\n  \"CrossDeviceProviders\": [\r\n    \"string\"\r\n  ],\r\n  \"HasDataUsagePermissions\": true,\r\n  \"Original\": 0,\r\n  \"Lookalikes\": 0,\r\n  \"Extended\": 0,\r\n  \"CrossDevice\": 0,\r\n  \"UpdatedAt\": \"2017-06-15T06:56:51.723Z\",\r\n  \"CreatedAt\": \"2017-06-15T06:56:51.723Z\"\r\n}"
+            },
+            "url": "https://api.adform.com/v1/dmp/segments/{{segmentId}}",
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "1a6b181c-26eb-f21b-6c7a-17165a5f775c",
+      "name": "Report",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "56d73c20-81f7-0d1a-5daf-7212dca52f1f",
+          "name": "Usage (revenue and impressions) reports",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "https://api.adform.com/v1/dmp/reports/datausage?dataProviderId={{dataProviderId}}&from={{startDate}}&to={{endDate}}&groupBy={{groupBy}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "dmp",
+                "reports",
+                "datausage"
+              ],
+              "query": [
+                {
+                  "key": "dataProviderId",
+                  "value": "{{dataProviderId}}",
+                  "equals": true
+                },
+                {
+                  "key": "from",
+                  "value": "{{startDate}}",
+                  "equals": true
+                },
+                {
+                  "key": "to",
+                  "value": "{{endDate}}",
+                  "equals": true
+                },
+                {
+                  "key": "groupBy",
+                  "value": "{{groupBy}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "All available parameters are listed here - https://api.adform.com/v1/help/dmp#!/Report/Report_GetDataUsageAsync"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "68ae7f42-eeef-e155-dfc3-f9276e75d125",
+          "name": "Audience reports",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "https://api.adform.com/v1/dmp/reports/audience?from={{startDate}}&to={{endDate}}&groupBy={{groupBy}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "dmp",
+                "reports",
+                "audience"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "{{startDate}}",
+                  "equals": true
+                },
+                {
+                  "key": "to",
+                  "value": "{{endDate}}",
+                  "equals": true
+                },
+                {
+                  "key": "groupBy",
+                  "value": "{{groupBy}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "All available parameters are listed here - https://api.adform.com/v1/help/dmp#!/Report/Report_GetAudienceAsync"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "673ad3c3-abb8-5035-5936-8dccfd118510",
+          "name": "Overall audience stats by data provider",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}/audience?from={{startDate}}&to={{endDate}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "dmp",
+                "dataproviders",
+                "{{dataProviderId}}",
+                "audience"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "{{startDate}}",
+                  "equals": true
+                },
+                {
+                  "key": "to",
+                  "value": "{{endDate}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "All available parameters are listed here - https://api.adform.com/v1/help/dmp#!/Report/Report_GetOverallAudienceAsyncByDataproviderid"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "8c51ccc1-3ac4-248a-92cd-a042c6ebb43c",
+          "name": "Overall audience stats by all data providers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "https://api.adform.com/v1/dmp/report/dataproviders/audience?from={{startDate}}&to={{endDate}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "dmp",
+                "report",
+                "dataproviders",
+                "audience"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "{{startDate}}",
+                  "equals": true
+                },
+                {
+                  "key": "to",
+                  "value": "{{endDate}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "All available parameters are listed here - https://api.adform.com/v1/help/dmp#!/Report/Report_GetOverallAudienceAsync"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "fe683dd0-0277-7a95-3d8c-9f16dd5a7915",
+          "name": "Billing overall report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/reports/billing/overall",
+            "description": "All available parameters are listed here - https://api.adform.com/v1/help/dmp#!/Report/Report_GetBillingOverallReportAsync"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "2bfbec4c-0d6e-5bf7-ad66-5e6b1fa4e6d3",
+      "name": "Event",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "28c9960f-ff9a-fdb2-b265-5cfc7d0d5ce3",
+          "name": "Get activity by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/v1/dmp/activities/{{activityId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "49490d40-b9b6-ac5f-55b2-a98376b02707",
+          "name": "Get event by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/v1/dmp/events/{{eventId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "4108a0cc-b3a8-d4a2-43e7-fc75f5bbe2a4",
+          "name": "Get events by data provider",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://api.adform.com/v1/dmp/events?dataProviderId={{dataProviderId}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "dmp",
+                "events"
+              ],
+              "query": [
+                {
+                  "key": "dataProviderId",
+                  "value": "{{dataProviderId}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "All available parameters are listed here - https://api.adform.com/v1/help/dmp#!/Event/Event_GetAsync"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "5a8294bd-d861-b9ec-5cde-46efc952572f",
+          "name": "Update event by ID",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/v1/dmp/events/{{eventId}}/acknowledgment",
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "11768bd0-9296-d607-e4a2-f4ba6085451b",
+      "name": "Data Providers",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "e8bc97a1-61ac-4741-09d6-29d3349b61c2",
+          "name": "Get list of available data providers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/dataproviders",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "9d5ed73c-1bb9-ffc1-6e1f-53e065e96d08",
+          "name": "Get info of data provider if it is availalbe for particular data consumer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/dataconsumers/{{dataConsumerId}}/dataproviders/{{dataProviderId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "0566b4f2-055f-9178-2d32-00b49d647a3f",
+          "name": "Get list of data provider if it is availalbe for particular data consumer copy",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/dataconsumers/{{dataConsumerId}}/dataproviders",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "6ee6c693-6945-9770-22a3-2b32785f6b49",
+          "name": "Get data provider by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "8ea7e93a-184e-b1ef-1230-c8762eae0fe9",
+          "name": "Get data provider by ID copy",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Id\": \"string\",\r\n  \"Name\": \"string\",\r\n  \"DataPlatformId\": \"string\",\r\n  \"CurrencyCode\": \"string\",\r\n  \"Description\": \"string\",\r\n  \"Pricing\": \"max\",\r\n  \"Type\": \"dataProvider\",\r\n  \"TypeId\": \"string\",\r\n  \"Status\": \"active\",\r\n  \"SegmentsCount\": 0,\r\n  \"SmartSegmentCount\": 0,\r\n  \"ExtendedSegmentCount\": 0,\r\n  \"MaxSegmentCount\": 0,\r\n  \"MaxSmartSegmentCount\": 0,\r\n  \"MaxExtendedSegmentCount\": 0,\r\n  \"MaxSegmentationRulesCount\": 0,\r\n  \"MinimalPrice\": 0,\r\n  \"RevenueShare\": 0,\r\n  \"PixelUrl\": \"string\",\r\n  \"PixelProfileEnabled\": true,\r\n  \"UseExtendedAmountOfSystemVariables\": true,\r\n  \"UseExtendedAmountOfNumericSystemVariables\": true,\r\n  \"ActiveCountryIds\": [\r\n    \"string\"\r\n  ],\r\n  \"EnabledCrossDeviceProviders\": [\r\n    \"string\"\r\n  ],\r\n  \"InventorySourceIds\": [\r\n    \"string\"\r\n  ],\r\n  \"Features\": [\r\n    \"string\"\r\n  ],\r\n  \"Regions\": [\r\n    \"europe\"\r\n  ],\r\n  \"MonthlyFee\": 0,\r\n  \"StoresInAppSegments\": true,\r\n  \"MarketplaceDescription\": \"string\",\r\n  \"LogoUrl\": \"string\",\r\n  \"UpdatedAt\": \"2017-06-22T13:01:09.163Z\",\r\n  \"CreatedAt\": \"2017-06-22T13:01:09.163Z\"\r\n}"
+            },
+            "url": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}",
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "eeb06c5e-cdd6-e74e-6443-9665636c35f3",
+      "name": "Data Provider Data Usage Permissions",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "f5753285-dad1-3026-2c26-b95635f76ab1",
+          "name": "Update all data usage policies for a specific data provider",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \r\n   \"forCountries\":{  \r\n      \"rule\":\"include\",\r\n      \"items\":[  \r\n         {  \r\n            \"id\":\"30\",\r\n            \"forAgencies\":{  \r\n               \"rule\":\"include\",\r\n               \"items\":[  \r\n                  {  \r\n                     \"id\":\"211\",\r\n                     \"forDataConsumers\":{  \r\n                        \"rule\":\"includeAll\",\r\n                        \"items\":[  \r\n\r\n                        ]\r\n                     }\r\n                  }\r\n               ]\r\n            }\r\n         }\r\n      ]\r\n   }\r\n}"
+            },
+            "url": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}/datausagepermissions",
+            "description": "Update all data usage policies for this data provider."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "292d63eb-bd7a-3099-714f-7db1007f9437",
+      "name": "Cookies",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "b1ffe507-7f7a-6038-7c5a-96d058233e49",
+          "name": "Upload cookies",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/csv"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{AdformUUID}{tab_separator}{SegmentRefID1},{SegmentRefID2},{SegmentRefIDN}\n{AdvertiserId}{tab_separator}{SegmentRefID1},{SegmentRefID2},{SegmentRefIDN}"
+            },
+            "url": {
+              "raw": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}/cookies?userIdentityTypeId=1",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "dmp",
+                "dataproviders",
+                "{{dataProviderId}}",
+                "cookies"
+              ],
+              "query": [
+                {
+                  "key": "userIdentityTypeId",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "userIdentityTypeId values are: 1 - Cookie ID 2 - External Cookie ID 3 - Advertising ID"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "47fd04a4-3da6-6072-cba6-e9e62b1c62d6",
+          "name": "Request cookies for the set of segments",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"DataProviderIds\": [\r\n    \"string\"\r\n  ],\r\n  \"SegmentIds\": [\r\n    \"string\"\r\n  ],\r\n  \"SegmentSource\": 0,\r\n  \"Fields\": [\r\n    \"cookieId\"\r\n  ],\r\n  \"IgnoreDeletedSegments\": true,\r\n  \"SingleFile\": true\r\n}"
+            },
+            "url": {
+              "raw": "https://api.adform.com/v1/dmp/cookies/export?userIdentityTypeId=1",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "v1",
+                "dmp",
+                "cookies",
+                "export"
+              ],
+              "query": [
+                {
+                  "key": "userIdentityTypeId",
+                  "value": "1",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "userIdentityTypeId values are:\r\n1 - Cookie ID\r\n2 - External Cookie ID\r\n3 - Advertising ID"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "0ebd5947-3f18-0abd-d6de-ef9301804af7",
+      "name": "Categories",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "82b71439-a7b1-4e9c-99f8-085b7afe475a",
+          "name": "Get all categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/categories",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "de26e4eb-4d24-053c-bcbc-17074bb86c78",
+          "name": "Create a category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Name\": \"string\",\r\n  \"DataProviderId\": \"string\",\r\n  \"ParentId\": \"string\"\r\n}"
+            },
+            "url": "https://api.adform.com/v1/dmp/categories",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "c549254a-00aa-e036-c1a8-8dad986333d4",
+          "name": "Get all categories related to data provider",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Name\": \"string\",\r\n  \"DataProviderId\": \"string\",\r\n  \"ParentId\": \"string\"\r\n}"
+            },
+            "url": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}/categories",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "a0cb094b-d2e3-16c4-c18b-e9764618803f",
+          "name": "Get all categories usable by particular data consumer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Name\": \"string\",\r\n  \"DataProviderId\": \"string\",\r\n  \"ParentId\": \"string\"\r\n}"
+            },
+            "url": "https://api.adform.com/v1/dmp/dataconsumers/{{dataConsumerId}}/categories",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "6b4f9438-5f21-549b-62b4-c6ce8b96953a",
+          "name": "Delete a category",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/categories/{{categoryId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "8d11f8b8-2746-d659-8af5-cf40662ff168",
+          "name": "Get category by Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/categories/{{categoryId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "e72d6346-880a-5bc1-f222-594a46d51388",
+          "name": "Update category by Id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Id\": \"string\",\r\n  \"Name\": \"string\",\r\n  \"DataProviderId\": \"string\",\r\n  \"ParentId\": \"string\",\r\n  \"UpdatedAt\": \"2017-06-21T07:02:27.905Z\",\r\n  \"CreatedAt\": \"2017-06-21T07:02:27.905Z\"\r\n}"
+            },
+            "url": "https://api.adform.com/v1/dmp/categories/{{categoryId}}",
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "661be04e-4165-4134-4bc9-51a972a3cded",
+      "name": "Advertiser",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "a5b28294-3c97-0e57-3dbb-e8377b447f5d",
+          "name": "Get a list of available advertisers by data provider",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {},
+            "url": "https://api.adform.com/v1/dmp/dataproviders/{{dataProviderId}}/advertisers",
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
