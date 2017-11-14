@@ -14125,7 +14125,7 @@
                       "mode": "raw",
                       "raw": "{\r\n  \"settings\": {\r\n    \"behavior\": 0,\r\n    \"bandwidthIds\": [\r\n      \"string\"\r\n    ]\r\n  },\r\n  \"targetingSolutionId\": \"00000\",\r\n  \"memberId\": \"rotator-uuid\"\r\n}"
                     },
-                    "url": "https://api.adform.com/v1/targeting/BandwidthTargetingRules/00000",
+                    "url": "https://api.adform.com/v1/targeting/BandwidthTargetingRules/000000",
                     "description": "This method creates Bandwidth targeting rule.\n\nYou need to parse GUID on your request URL.\n\nEXAMPLE: /BandwidthTargetingRules/0000\n(0000 - guid)\n\n"
                   },
                   "response": []
