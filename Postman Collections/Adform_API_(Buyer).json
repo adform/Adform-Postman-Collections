@@ -12053,29 +12053,7 @@
                       }
                     ],
                     "body": {},
-                    "url": {
-                      "raw": "https://api.adform.com/v1/buyer/rtb/lineitems/:id/inventories",
-                      "protocol": "https",
-                      "host": [
-                        "api",
-                        "adform",
-                        "com"
-                      ],
-                      "path": [
-                        "v1",
-                        "buyer",
-                        "rtb",
-                        "lineitems",
-                        ":id",
-                        "inventories"
-                      ],
-                      "variable": [
-                        {
-                          "key": "id",
-                          "value": "{{id}}"
-                        }
-                      ]
-                    },
+                    "url": "https://api.adform.com/v1/buyer/rtb/lineitems/{{id}}/inventories",
                     "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_GetInventories"
                   },
                   "response": []
