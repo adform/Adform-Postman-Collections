@@ -12077,29 +12077,7 @@
                       "mode": "raw",
                       "raw": "[\r\n  {\r\n    \"id\": 0,\r\n    \"buyingType\": \"OpenExchange\",\r\n    \"bidMultiplier\": 0,\r\n    \"deals\": [\r\n      null\r\n    ],\r\n    \"packages\": [\r\n      null\r\n    ]\r\n  }\r\n]"
                     },
-                    "url": {
-                      "raw": "https://api.adform.com/v1/buyer/rtb/lineitems/:id/inventories",
-                      "protocol": "https",
-                      "host": [
-                        "api",
-                        "adform",
-                        "com"
-                      ],
-                      "path": [
-                        "v1",
-                        "buyer",
-                        "rtb",
-                        "lineitems",
-                        ":id",
-                        "inventories"
-                      ],
-                      "variable": [
-                        {
-                          "key": "id",
-                          "value": "{{id}}"
-                        }
-                      ]
-                    },
+                    "url": "https://api.adform.com/v1/buyer/rtb/lineitems/{{id}}/inventories",
                     "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_PutInventories"
                   },
                   "response": []
