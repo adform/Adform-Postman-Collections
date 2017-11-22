@@ -13447,63 +13447,6 @@
           "description": "",
           "item": [
             {
-              "_postman_id": "cc76e8bc-d8f9-3779-9d54-ad4e8d3dcc97",
-              "name": "Master Data OLD",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "tests[\"Request header includes authentication Ticket\"] = \r",
-                      "  request.headers.Ticket;\r",
-                      "\r",
-                      "tests[\"Request was successful\"] = \r",
-                      "  responseCode.code === 200;"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Ticket",
-                    "value": "{{Ticket}}"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n    \"metrics\": [\"clicks\", \"impressions\"]\r\n}"
-                },
-                "url": {
-                  "raw": "masterdata.adform.com:8652/list/00000?render=json&authTicket=11111",
-                  "host": [
-                    "masterdata",
-                    "adform",
-                    "com"
-                  ],
-                  "port": "8652",
-                  "path": [
-                    "list",
-                    "00000"
-                  ],
-                  "query": [
-                    {
-                      "key": "render",
-                      "value": "json"
-                    },
-                    {
-                      "key": "authTicket",
-                      "value": "11111"
-                    }
-                  ]
-                },
-                "description": "This method returs a list of available master data files.\n\nYou need to parse MasterDataId and Authorization ticket returned by calling SecurityServiceAPI.\n\nEXAMPLE: 8652/list/00000?render=json&authTicket=11111\n(00000  MasterDataId, 111111 - Authorization ticket)"
-              },
-              "response": []
-            },
-            {
               "_postman_id": "91dc404a-9d42-44d9-55bc-3664bd0a8408",
               "name": "Download Master Data file by Id",
               "request": {
