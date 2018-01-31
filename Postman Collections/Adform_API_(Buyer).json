@@ -176,67 +176,6 @@
             "description": ""
           },
           "response": []
-        },
-        {
-          "_postman_id": "cedbc345-4a11-5c79-46d9-ec43cda97425",
-          "name": "OAuth2 Login copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Content-Type is application/json\"] =",
-                  "  request.headers[\"Content-Type\"] === \"application/json\";",
-                  "",
-                  "tests[\"Request was successful\"] = ",
-                  "  responseCode.code === 200;",
-                  "",
-                  "if(responseCode.code === 200) {",
-                  "  var jsonData = JSON.parse(responseBody);",
-                  "  postman.setGlobalVariable('access_token', jsonData.access_token);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "client_id",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "client_secret",
-                  "value": "",
-                  "type": "text"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "client_credentials",
-                  "type": "text"
-                },
-                {
-                  "key": "scope",
-                  "value": "https://api.adform.com/scope/eapi",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": "https://id.adform.com/sts/connect/token",
-            "description": null
-          },
-          "response": []
         }
       ]
     },
