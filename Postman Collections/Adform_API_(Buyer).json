@@ -13883,7 +13883,7 @@
                 "header": [
                   {
                     "key": "Authorization",
-                    "value": "Beaere {{access_token}}"
+                    "value": "Bearer {{access_token}}"
                   }
                 ],
                 "body": {
