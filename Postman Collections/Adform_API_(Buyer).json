@@ -13796,7 +13796,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"dimensions\": [\r\n    \"order\"\r\n  ],\r\n  \"metrics\": [\r\n    \"clicks\",\r\n    \"impressions\"\r\n  ],\r\n  \"filter\": {\r\n    \"date\": \"campaignStartToEnd\",\r\n    \"campaign\": {\r\n    \t\"id\": [1231285]\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"dimensions\": [\r\n    \"order\"\r\n  ],\r\n  \"metrics\": [\r\n    \"clicks\",\r\n    \"impressions\"\r\n  ],\r\n  \"filter\": {\r\n    \"date\": \"campaignStartToEnd\"\r\n  }\r\n}"
                 },
                 "url": "https://api.adform.com/v1/reportingstats/agency/reportdata",
                 "description": "This method returns stats according to specified filters, dimensions and metrics."
